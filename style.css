@@ -1,0 +1,42 @@
+body{
+    background-color: #115DA9;
+}
+
+#contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+#estado{
+    margin-top: 50px;
+    color: white;
+    font-size: 25px;
+}
+#tablero{
+    margin-top: 10px;
+    width: 310px;
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid{
+    background-color: teal;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    font-size: 100px;
+    color: #black;
+}
+.grid:hover{
+    cursor:pointer; cursor: hand;
+    background-color: aquamarine;
+}
