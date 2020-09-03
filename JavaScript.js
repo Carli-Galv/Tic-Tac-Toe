@@ -11,6 +11,7 @@ var tablero = [
    {value: 0, link: document.getElementById("8")}]
   ];
   var turno = "X";
+  var win = false;
   var movimientos = 0;
 function verificar(matriz){
       //Verifica si hay 3 coinscidencias de forma horizontal o vertical//
@@ -31,23 +32,32 @@ function verificar(matriz){
       return (desenlace(matriz[0][2].value));
     }
   if(movimientos === 8){
-    return (desenlace("E"));
+    return (desenlace("Empate"));
   }
   return(document.getElementById("estado").innerHTML = "En Partida");
 }
-function desenlace(texto){
-  if (texto === "E"){
-    return(document.getElementById("estado").innerHTML = "Empate");
+
+function desenlace(winner){
+  win=true;
+  if (winner === "Empate"){
+    document.getElementById("estado").innerHTML = "Empate";
   }
-  if (texto === "X"){
-    return(document.getElementById("estado").innerHTML = "Ganador Jugador X");
+  if (winner === "X"){
+    document.getElementById("estado").innerHTML = "Ganador Jugador X";
   }
-  if (texto === "O"){
-    return(document.getElementById("estado").innerHTML = "Ganador Jugador O");
+  if (winner === "O"){
+    document.getElementById("estado").innerHTML = "Ganador Jugador O";
   }
 }
+
+
 //logica Click// 
 function click(x,z){
+
+  if (win){
+    return(alert("Game Tie"));
+  }
+
   if (tablero[x][z].value != 0){
     return (alert("ESTA POSICION YA ESTA OCUPADA"));
   }
@@ -67,6 +77,8 @@ function click(x,z){
     return(turno = "X");
   }
 }
+
+
   //Detecta el click y envia: el identificador del elemento en el DOM y la posicion en el tablero
 document.getElementById("0").onclick = function(){click(0,0)};
 document.getElementById("1").onclick = function(){click(0,1)};
